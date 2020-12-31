@@ -1,0 +1,21 @@
+{% load static %}
+
+<artcile>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-1">
+            <img src="user_image.png" alt="user ki image">
+        </div>
+        <div class="col-sm-10">
+            UserName
+        </div>
+        <div class="col-sm-1">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <img src="{% static 'images\\'+{% block imageURL %}something.jpg{% endblock %}+'.jpg' %}" alt="post image">
+        </div>
+    </div>
+</div>
+</article>

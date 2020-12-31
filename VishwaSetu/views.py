@@ -11,3 +11,6 @@ def profile(request):
 
 def globalTrending(request):
     return HttpResponse("Global Trending page")
+
+def tools(request):
+    return HttpResponse("Tools page")

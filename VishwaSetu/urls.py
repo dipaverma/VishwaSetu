@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home, name='home'),
     path('profile/',views.profile, name='profile'),
+    path('tools/',views.tools, name='tools'),
     path('globalTrending/',views.globalTrending, name='globalTrending')
 ]
