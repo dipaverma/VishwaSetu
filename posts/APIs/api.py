@@ -11,11 +11,11 @@ import os
 
 def eng_to_sans(word):
     url = "https://sanskritdictionary.com/?q=" + word + "&display=devanagari"
-    driver = webdriver.Chrome("/home/piyush/Downloads/chromedriver")
-    driver.minimize_window()
+    driver = webdriver.Chrome("/home/dipanshu/chromedriver")
+    # driver.minimize_window()
     driver.get(url)
 
-    result = driver.find_element_by_xpath('/html/body/table[1]/tbody/tr[5]/td[2]/table/tbody/tr/td/div/table/tbody/tr[3]/td[1]')
+    result = driver.find_element("xpath",'/html/body/table[1]/tbody/tr[5]/td[2]/table/tbody/tr/td/div/table/tbody/tr[3]/td[1]')
     return result.text
 
 def objDetect(file):
@@ -58,12 +58,12 @@ def objDetect(file):
 
 def get_text(file):
     
-    driver = webdriver.Chrome("/home/piyush/Downloads/chromedriver")
+    driver = webdriver.Chrome("/home/dipanshu/chromedriver")
     driver.get("https://ocr.sanskritdictionary.com/#")
-    driver.find_element_by_id("pictureFile").send_keys(os.getcwd() + "/media/" + file)
+    driver.find_element("id","pictureFile").send_keys(os.getcwd() + "/media/" + file)
 
     time.sleep(15)
-    driver.switch_to.frame(driver.find_element_by_xpath('//*[@id="tinymcetext_ifr"]'))
+    driver.switch_to.frame(driver.find_element("xpath",'//*[@id="tinymcetext_ifr"]'))
     result = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '//*[@id="tinymce"]/p')))
     return result.text
 
